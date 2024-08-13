@@ -8,6 +8,4 @@
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //echo 'OK CONNEXION';
-
 ?>
