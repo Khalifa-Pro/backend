@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SCANNER_HOME = tool 'Sonar'  // Assurez-vous que l'outil SonarQube Scanner est configuré dans Jenkins
+        SCANNER_HOME = tool 'Sonar'  // Assurez-vous que l'outil SonarQube Scanner est configuré dans Jenkins avec le nom 'Sonar'
     }
 
     stages {
@@ -10,8 +10,8 @@ pipeline {
             steps {
                 script {
                     // Exécuter l'analyse avec SonarQube Scanner
-                    withSonarQubeEnv('SonarQube') {  // Nom du serveur SonarQube configuré dans Jenkins
-                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=testBackend -Dsonar.sources=. -Dsonar.host.url=http://172.17.0.2:9000 -				Dsonar.login=sqp_0e85b1f9e872edf4c5961f8ce0e0f9693aae8a0e"
+                    withSonarQubeEnv('Sonar') {  // Nom du serveur SonarQube configuré dans Jenkins
+                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=testBackend -Dsonar.sources=. -Dsonar.host.url=http://172.17.0.2:9000 -					Dsonar.login=sqp_0e85b1f9e872edf4c5961f8ce0e0f9693aae8a0e"
                     }
                 }
             }
